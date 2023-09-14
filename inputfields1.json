@@ -1,0 +1,12 @@
+{
+    "inputs" : [
+        {
+            "bounds": [100, 100, 200, 200],
+            "nearest label": "Please enter your email address"
+        },
+        {
+            "bounds": [100, 300, 200, 400],
+            "nearest label": "Password"
+        }
+    ]
+}
