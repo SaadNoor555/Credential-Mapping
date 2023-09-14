@@ -1,8 +1,9 @@
 {
-    "sigin in username": "saadnoor",
-    "sigin in password": "noorsaad",
+    "sigin username": "saadnoor",
+    "sigin password": "noorsaad",
     "friend to search": "sakib",
     "sign up username": "admin",
     "sign up password": "password",
-    "sign up confirm password": "password"
+    "sign up confirm password": "Password",
+    "login email": "admin@gmail.com"
 }

@@ -1,0 +1,14 @@
+Please enter your email address, sigin username, 0.40807604789733887
+Please enter your email address, sigin password, 0.3283176124095917
+Please enter your email address, friend to search, 0.30357515811920166
+Please enter your email address, sign up username, 0.48902419209480286
+Please enter your email address, sign up password, 0.351936936378479
+Please enter your email address, sign up confirm password, 0.4063756465911865
+Please enter your email address, login email, 0.4755855202674866
+Password, sigin username, 0.3004840016365051
+Password, sigin password, 0.6765519380569458
+Password, friend to search, 0.25765642523765564
+Password, sign up username, 0.5095240473747253
+Password, sign up password, 0.7985256910324097
+Password, sign up confirm password, 0.6917162537574768
+Password, login email, 0.509150505065918
