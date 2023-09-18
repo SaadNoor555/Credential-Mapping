@@ -1,0 +1,12 @@
+{
+    "inputs" : [
+        {
+            "bounds": [53, 442, 1387, 547],
+            "nearest label": "Email"
+        },
+        {
+            "bounds": [43, 565, 1387, 670],
+            "nearest label": "Password"
+        }
+    ]
+}
