@@ -1,13 +1,14 @@
 import xml.etree.ElementTree as ET
 
-xml_file = "loginUI.xml"
+xml_file = r"dataset\xmls\formUI.xml"
 
 tree = ET.parse(xml_file)
 root = tree.getroot()
 # print([elem.tag for elem in root.iter()])
-for elem in root.iter('children'):
-    # print(elem.tag)
-    print(ET.tostring(elem, encoding='utf8').decode('utf8'))
+for elem in root.iter():
+    if elem.getchildren()!=[]:
+        print(elem.getchildren())
+    # print(ET.tostring(elem, encoding='utf8').decode('utf8'))
     # print(ET.tostring(elem, encoding='utf8').decode('utf8'))
     # print(elem.tag)
     # break

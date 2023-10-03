@@ -33,6 +33,8 @@ if __name__=='__main__':
         value = ''
         for key in loginConfig.keys():
             sen = x['nearest label']
+            print(sen)
+            sen = get_POS(sen)
             tmp = getSimilarity(sen, key)
             print("{}, {}, {}".format(sen, key, str(tmp)))
             if tmp>sim:
