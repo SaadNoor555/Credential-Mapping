@@ -5,11 +5,18 @@ class Parser:
         self.filepath = file
         self.tree = XMLTree(filepath=file)
 
-    def traverse(self, strategy='bfs', debug=False):
-        self.tree.bfs(debug=debug) if strategy=='bfs' else self.tree.dfs(debug=debug)
+    def traverse(self, strategy:str='bfs', debug:bool=False, findRel:bool=False):
+        self.tree.bfs(debug=debug, findRel=findRel) if strategy=='bfs'\
+              else self.tree.dfs(debug=debug, findRel=findRel)
 
 
 if __name__=='__main__':
-    filepath = r'F:\spl3\Credential-Mapping\dataset\xmls\formUI.xml'
+    filepath = r'F:\spl3\Credential-Mapping\dataset\xmls\formUI1.xml'
     tp = Parser(filepath)
-    tp.traverse(debug=True, strategy='dfs')
+    tp.traverse(strategy='bfs', debug=False, findRel=True)
+    for key in tp.tree.relations.keys():
+        print('label:')
+        print(key.attributes)
+        print('**********')
+        print('field')
+        print(tp.tree.relations[key].attributes)
