@@ -7,7 +7,9 @@ class XMLTree:
         idx = 0
         if filepath != None and node==None:
             tree = ET.parse(filepath)
-            node = list(list(tree.getroot())[1])[0]
+            print(len(tree.getroot()))
+            node = list(list(tree.getroot())[0])[0]
+            print(node)
 
         self.node = node
         # self.attributes = []
@@ -110,6 +112,8 @@ class XMLTree:
 
 
 if __name__=='__main__':
+    # r'F:\spl3\Credential-Mapping\dataset\xmls\formUI.xml'
+    # r'F:\spl3\Credential-Mapping\codes\window.xml'
     filepath = r'F:\spl3\Credential-Mapping\dataset\xmls\formUI.xml'
     # tree = ET.parse(filepath)
     # root = tree.getroot()

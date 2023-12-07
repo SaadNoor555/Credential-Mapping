@@ -1,14 +1,18 @@
 import os
 
 class AdbCommand:
-    def __init__(self, packagename) -> None:
+    def __init__(self, packagename='') -> None:
         self.package = packagename
-        self.start_app()
+        # self.start_app()
 
     def swipe_event(self, start, end, duration=50):
         command = f'input swipe {start[0]} {start[1]} \
             {end[0]} {end[1]} {duration}'
         test_adb_shell(command)
+
+    def install_apk(self, apkpath):
+        os.system(f'adb install {apkpath}')
+        
 
     def touch_event(self, coord):
         command = f'input tap {coord[0]} {coord[1]}'
@@ -48,9 +52,14 @@ class AdbCommand:
         command = f'am start {self.package}'
         test_adb_shell(command)
 
-    def get_ui_info(self, outputfile='window.xml'):
+    def get_ui_info(self, outputfile=''):
         command = f'uiautomator dump {outputfile}'
         test_adb_shell(command)
+        self.retrieve_ui_info()
+
+    def retrieve_ui_info(self, outputfile='/sdcard/window_dump.xml', localfile='window.xml'):
+        os.system(f'adb pull {outputfile} {localfile}')
+
 
 
 def test_adb_shell(command):
@@ -61,6 +70,12 @@ if __name__=='__main__':
     # test_adb_shell('input swipe 100 1000 100 200')
     # test_adb_shell('input keyevent 28')
     # key_press_event('del')
+
+
     commander = AdbCommand('com.google.android.contacts')
     commander.get_ui_info()
+
+    # commander = AdbCommand()
+    # filename = r'F:\spl3\Credential-Mapping\dataset\Daraz_Online_Shopping_App_7.5.1_Apkpure.apk'
+    # commander.install_apk(filename)
     # start_app('com.google.android.contacts')

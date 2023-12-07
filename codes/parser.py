@@ -33,7 +33,7 @@ def exp1(tp: Parser):
 '''
 
 def exp2(tp: Parser):
-    labels = tp.findClass(class_text=['TextView'])
+    labels = tp.findClass(class_text=['TextView', 'EditText'])
     input_boxes = tp.findClass(class_text=['EditText'])
     # print(len(labels), len(input_boxes))
     # for box in input_boxes:
@@ -53,6 +53,6 @@ def exp2(tp: Parser):
         print(input_map[key].attributes)
 
 if __name__=='__main__':
-    filepath = r'F:\spl3\Credential-Mapping\dataset\xmls\loginUI.xml'
+    filepath = r'F:\spl3\Credential-Mapping\dataset\xmls\formUI.xml'
     tp = Parser(filepath)
     exp2(tp)
