@@ -1,4 +1,5 @@
 import os
+import time
 
 class AdbCommand:
     def __init__(self, packagename='') -> None:
@@ -57,6 +58,7 @@ class AdbCommand:
     def start_app(self):
         command = f'am start {self.package}'
         test_adb_shell(command)
+        time.sleep(5)
 
     def get_ui_info(self, outputfile=''):
         command = f'uiautomator dump'
@@ -80,6 +82,7 @@ if __name__=='__main__':
 
     commander = AdbCommand('com.google.android.contacts')
     commander.get_ui_info()
+    # commander.touch_event([116, 216])
 
     # commander = AdbCommand()
     # filename = r'F:\spl3\Credential-Mapping\dataset\Daraz_Online_Shopping_App_7.5.1_Apkpure.apk'
