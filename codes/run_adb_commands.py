@@ -24,6 +24,8 @@ class AdbCommand:
             'down': 281,
             'left': 282,
             'right': 283,
+            'home': 3,
+            'back': 4,
             'caps_lock': 115,
             'soft_left': 1,
             'soft_right': 2,
@@ -36,6 +38,7 @@ class AdbCommand:
             'volume_down': 25,
             'power': 26,
             'clear': 28,
+            'space': 62,
             'enter': 66,
             'del': 67,
             'escape': 111,
@@ -43,7 +46,10 @@ class AdbCommand:
         test_adb_shell(f'input keyevent {key_dict[key]}')
 
     def type_event(self, message):
-        test_adb_shell(f'input text {message}')
+        messages = message.split(' ')
+        for m in messages:
+            test_adb_shell(f'input text {m}')
+            self.key_press_event(key='space')
 
 
     def run_monkey(self, appname):
@@ -53,9 +59,9 @@ class AdbCommand:
         test_adb_shell(command)
 
     def get_ui_info(self, outputfile=''):
-        command = f'uiautomator dump {outputfile}'
+        command = f'uiautomator dump'
         test_adb_shell(command)
-        self.retrieve_ui_info()
+        self.retrieve_ui_info(localfile=outputfile)
 
     def retrieve_ui_info(self, outputfile='/sdcard/window_dump.xml', localfile='window.xml'):
         os.system(f'adb pull {outputfile} {localfile}')
