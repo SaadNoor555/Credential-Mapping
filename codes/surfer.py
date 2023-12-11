@@ -117,7 +117,7 @@ class Surfer:
         print(log_msg)
         self.logger.write_line(print)
 
-    def bfs(self, curParser=None, time_limit=300):
+    def bfs(self, curParser=None, config_name=r'F:\spl3\Credential-Mapping\codes\contact_input.json', time_limit=300):
         start_time = time.time()
         if curParser==None:
             curParser = self.initial_screen
@@ -142,7 +142,19 @@ class Surfer:
                 self.command_runner.close_all()
                 self.recorder.add_event('close_all', '', 0.2)
                 self.go_to_state(topParser.hash)
+            for action in topParser.scrollables:
+                x, y = topParser.get_nodes_center(action)
+                log_msg = f'scrolling from {x},{y-200} to {x}, {y+200}'
+                print(log_msg)
+                self.logger.write_line(log_msg)
+                self.command_runner.swipe_event((x, y-200), (x, y+200))
+                self.recorder.add_event('swipe', [(x, y-200), (x, y+200)], 0.2)
 
+                log_msg = f'scrolling from {x},{y+200} to {x}, {y-200}'
+                print(log_msg)
+                self.logger.write_line(log_msg)
+                self.command_runner.swipe_event((x, y+200), (x, y-200))
+                self.recorder.add_event('swipe', [(x, y+200), (x, y-200)], 0.2)
             for action in topParser.clickables:
                 print(f'time passed: {time.time()-start_time}s')
                 if (time.time() - start_time)>time_limit:

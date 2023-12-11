@@ -1,13 +1,21 @@
 Starting app com.google.android.contacts
 hash len 4155
 starting traversal using bfs
+scrolling from 540,166 to 540, 566
+scrolling from 540,566 to 540, 166
+scrolling from 540,1078 to 540, 1478
+scrolling from 540,1478 to 540, 1078
 clicking 540, 216.
 class: android.widget.EditText
 text: Search contacts
 content-desc: 
 going back edittext
-newParser length: 4588
+newParser length: 4380
 going back***
+lastParser length: 4089
+topParser length: 4155
+closing as the app did not restore state
+<built-in function print>
 clicking 116, 216.
 class: android.widget.ImageButton
 text: 
@@ -72,6 +80,10 @@ content-desc: Fix & manage
 newParser length: 3793
 going back***
 <built-in function print>
+scrolling from 540,166 to 540, 566
+scrolling from 540,566 to 540, 166
+scrolling from 540,1214 to 540, 1614
+scrolling from 540,1614 to 540, 1214
 clicking 63, 215.
 class: android.widget.ImageButton
 text: 
@@ -79,7 +91,7 @@ content-desc: Back
 newParser length: 4155
 going back***
 lastParser length: 2821
-topParser length: 4588
+topParser length: 4380
 closing as the app did not restore state
 <built-in function print>
 clicking 539, 216.
@@ -88,73 +100,59 @@ text: Search contacts
 content-desc: 
 going back edittext
 newParser length: 4588
+going back***
+lastParser length: 4155
+topParser length: 4380
+closing as the app did not restore state
+<built-in function print>
 clicking 1016, 215.
 class: android.widget.Button
 text: 
 content-desc: Start voice search
-newParser length: 435
+newParser length: 4647
 going back***
-clicking 540, 789.
-class: android.view.ViewGroup
-text: 
-content-desc: 
-newParser length: 4588
-clicking 540, 1083.
-class: android.view.ViewGroup
-text: 
-content-desc: 
-newParser length: 4588
-clicking 540, 1377.
-class: android.view.ViewGroup
-text: 
-content-desc: 
-newParser length: 4588
-clicking 540, 1671.
-class: android.view.ViewGroup
-text: 
-content-desc: 
-newParser length: 4588
-clicking 540, 1965.
-class: android.view.ViewGroup
-text: 
-content-desc: 
-newParser length: 4588
-clicking 540, 2259.
-class: android.view.ViewGroup
-text: 
-content-desc: 
-newParser length: 4588
-<built-in function print>
-clicking 456, 385.
-class: android.support.v7.widget.LinearLayoutCompat
-text: 
-content-desc: 
-newParser length: 3873
-going back***
-lastParser length: 2821
-topParser length: 5081
+lastParser length: 4647
+topParser length: 4380
 closing as the app did not restore state
 <built-in function print>
-clicking 456, 511.
-class: android.support.v7.widget.LinearLayoutCompat
+clicking 540, 566.
+class: android.view.ViewGroup
 text: 
 content-desc: 
-newParser length: 4155
+newParser length: 4588
 going back***
-lastParser length: 2821
-topParser length: 5081
+lastParser length: 4155
+topParser length: 4380
 closing as the app did not restore state
 <built-in function print>
-clicking 456, 787.
-class: android.support.v7.widget.LinearLayoutCompat
+clicking 540, 860.
+class: android.view.ViewGroup
 text: 
 content-desc: 
-newParser length: 825
+newParser length: 4588
 going back***
-lastParser length: 837
-topParser length: 5081
+lastParser length: 4155
+topParser length: 4380
 closing as the app did not restore state
 <built-in function print>
+clicking 540, 1154.
+class: android.view.ViewGroup
+text: 
+content-desc: 
+newParser length: 4588
+going back***
+lastParser length: 4155
+topParser length: 4380
+closing as the app did not restore state
 <built-in function print>
+clicking 540, 1448.
+class: android.view.ViewGroup
+text: 
+content-desc: 
+newParser length: 4588
+going back***
+lastParser length: 4155
+topParser length: 4380
+closing as the app did not restore state
 <built-in function print>
 time limit of 300s reached
