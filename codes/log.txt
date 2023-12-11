@@ -121,7 +121,12 @@ clicking 115, 384.
 class: android.widget.ImageView
 text: 
 content-desc: Close
-newParser length: 1988
+newParser length: 2438
+going back***
+lastParser length: 1662
+topParser length: 1988
+closing as the app did not restore state
+<built-in function print>
 clicking 540, 874.
 class: android.view.ViewGroup
 text: 
@@ -211,7 +216,12 @@ clicking 540, 1200.
 class: android.view.View
 text: 
 content-desc: 
-newParser length: 587
+newParser length: 2438
+going back***
+lastParser length: 1662
+topParser length: 587
+closing as the app did not restore state
+<built-in function print>
 clicking 540, 2263.
 class: android.widget.TextView
 text: iit 
@@ -381,168 +391,3 @@ clicking 664, 1209.
 class: android.widget.CompoundButton
 text: Added
 content-desc: Added recently
-newParser length: 2897
-clicking 180, 2232.
-class: android.widget.FrameLayout
-text: 
-content-desc: Contacts
-newParser length: 2438
-going back***
-<built-in function print>
-clicking 1006, 215.
-class: android.widget.FrameLayout
-text: 
-content-desc: Signed in as Device
-Account and settings.
-newParser length: 1988
-going back***
-clicking 280, 568.
-class: androidx.cardview.widget.CardView
-text: 
-content-desc: 
-newParser length: 579
-going back***
-clicking 799, 568.
-class: androidx.cardview.widget.CardView
-text: 
-content-desc: 
-newParser length: 2431
-going back***
-clicking 280, 768.
-class: androidx.cardview.widget.CardView
-text: 
-content-desc: 
-newParser length: 2221
-going back***
-lastParser length: 2221
-topParser length: 2521
-closing as the app did not restore state
-<built-in function print>
-clicking 799, 768.
-class: androidx.cardview.widget.CardView
-text: 
-content-desc: 
-newParser length: 2989
-going back***
-clicking 540, 1052.
-class: android.widget.LinearLayout
-text: 
-content-desc: 
-newParser length: 1355
-going back***
-clicking 180, 2232.
-class: android.widget.FrameLayout
-text: 
-content-desc: Contacts
-newParser length: 2438
-going back***
-<built-in function print>
-clicking 540, 1136.
-class: android.widget.FrameLayout
-text: 
-content-desc: Tap to stop listening
-newParser length: 1988
-going back***
-lastParser length: 2521
-topParser length: 361
-closing as the app did not restore state
-<built-in function print>
-<built-in function print>
-clicking 540, 798.
-class: android.widget.EditText
-text: Label name
-content-desc: 
-going back edittext
-newParser length: 2521
-going back***
-lastParser length: 1662
-topParser length: 825
-closing as the app did not restore state
-<built-in function print>
-clicking 644, 1040.
-class: android.widget.Button
-text: Cancel
-content-desc: 
-newParser length: 1355
-going back***
-lastParser length: 2521
-topParser length: 825
-closing as the app did not restore state
-<built-in function print>
-clicking 842, 1040.
-class: android.widget.Button
-text: OK
-content-desc: 
-newParser length: 1355
-going back***
-lastParser length: 2521
-topParser length: 825
-closing as the app did not restore state
-<built-in function print>
-<built-in function print>
-clicking 73, 205.
-class: android.widget.ImageButton
-text: 
-content-desc: Navigate up
-newParser length: 2521
-going back***
-lastParser length: 1662
-topParser length: 2310
-closing as the app did not restore state
-<built-in function print>
-clicking 540, 925.
-class: android.widget.LinearLayout
-text: 
-content-desc: 
-newParser length: 2310
-clicking 943, 925.
-class: android.widget.ImageView
-text: 
-content-desc: Settings
-newParser length: 1249
-going back***
-clicking 540, 1215.
-class: android.widget.LinearLayout
-text: 
-content-desc: 
-newParser length: 1791
-going back***
-lastParser length: 1791
-topParser length: 2310
-closing as the app did not restore state
-<built-in function print>
-clicking 540, 1396.
-class: android.widget.LinearLayout
-text: 
-content-desc: 
-newParser length: 2521
-going back***
-lastParser length: 1791
-topParser length: 2310
-closing as the app did not restore state
-<built-in function print>
-<built-in function print>
-clicking 73, 215.
-class: android.widget.ImageButton
-text: 
-content-desc: Navigate up
-newParser length: 2521
-going back***
-lastParser length: 1662
-topParser length: 3146
-closing as the app did not restore state
-<built-in function print>
-clicking 1011, 215.
-class: android.widget.ImageView
-text: 
-content-desc: More options
-newParser length: 2521
-going back***
-lastParser length: 1662
-topParser length: 3146
-closing as the app did not restore state
-<built-in function print>
-clicking 540, 499.
-class: android.widget.LinearLayout
-text: 
-content-desc: 

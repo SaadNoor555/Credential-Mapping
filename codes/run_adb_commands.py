@@ -61,7 +61,7 @@ class AdbCommand:
     def start_app(self):
         command = f'am start {self.package}'
         test_adb_shell(command)
-        time.sleep(5)
+        time.sleep(2.5)
 
     def close_app(self):
         self.key_press_event('home')
