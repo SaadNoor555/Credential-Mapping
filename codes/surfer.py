@@ -3,6 +3,7 @@ from run_adb_commands import AdbCommand
 import time
 import json
 from logger import Logger
+from recorder import Recorder
 
 class Surfer:
     def __init__(self, packagename):
@@ -14,9 +15,11 @@ class Surfer:
         self.keymap = {}
         self.visited = set()
         self.logger = Logger()
+        self.recorder = Recorder(self.packagename)
 
     def start_app(self):
         self.command_runner.start_app()
+        self.recorder.add_event(type='start', coords='', wait=0)
         self.command_runner.get_ui_info()
         time.sleep(0.5)
         parser = XMLParser()
@@ -83,7 +86,8 @@ class Surfer:
             print(log_msg)
             self.logger.write_line(log_msg)
             self.command_runner.touch_event([x, y])
-            time.sleep(2)
+            self.recorder.add_event('touch', [x,y], 0.2)
+            time.sleep(1)
             self.command_runner.get_ui_info()
             childParser = XMLParser()
             self.relations[curParser.hash][childParser.hash] = (x, y) 
@@ -96,6 +100,7 @@ class Surfer:
             print(log_msg)
             self.logger.write_line(log_msg)
             self.command_runner.key_press_event('back')
+            self.recorder.add_event('type', 'back', 0.2)
         else:
             log_msg = 'not going back since at home'
             print(log_msg)
@@ -103,14 +108,17 @@ class Surfer:
 
     def go_to_state(self, stateHash):
         self.command_runner.start_app()
+        self.recorder.add_event('start', '', 0)
         for coords in self.keymap[stateHash]:
             self.command_runner.touch_event(coords)
+            self.recorder.add_event('touch', coords, 0.3)
             time.sleep(0.5)
         log_msg = 'state restored'
         print(log_msg)
         self.logger.write_line(print)
 
-    def bfs(self, curParser=None):
+    def bfs(self, curParser=None, time_limit=300):
+        start_time = time.time()
         if curParser==None:
             curParser = self.initial_screen
         queue = []
@@ -132,15 +140,23 @@ class Surfer:
             latestParser = XMLParser()
             if latestParser.hash != topParser.hash:
                 self.command_runner.close_all()
+                self.recorder.add_event('close_all', '', 0.2)
                 self.go_to_state(topParser.hash)
 
             for action in topParser.clickables:
+                print(f'time passed: {time.time()-start_time}s')
+                if (time.time() - start_time)>time_limit:
+                    log_msg = f'time limit of {time_limit}s reached'
+                    print(log_msg)
+                    self.logger.write_line(log_msg)
+                    return
                 # Starting to do available click actions
                 x, y = topParser.get_nodes_center(action)
                 log_msg = f'clicking {x}, {y}.\nclass: {action["class"]}\ntext: {action["text"]}\ncontent-desc: {action["content-desc"]}'
                 print(log_msg)
                 self.logger.write_line(log_msg)
                 self.command_runner.touch_event([x, y])
+                self.recorder.add_event('touch', [x, y], 0.2)
                 self.command_runner.get_ui_info()
                 newParser = XMLParser()
                 if newParser.hash!=topParser.hash and newParser.hash not in self.visited:
@@ -154,6 +170,7 @@ class Surfer:
                     print(log_msg)
                     self.logger.write_line(log_msg)
                     self.command_runner.key_press_event('back')
+                    self.recorder.add_event('type', 'back', 0.2)
                     time.sleep(0.5)
                 log_msg = f'newParser length: {len(newParser.hash)}'
                 print(log_msg)
@@ -163,6 +180,7 @@ class Surfer:
                     print(log_msg)
                     self.logger.write_line(log_msg)
                     self.command_runner.key_press_event('back')
+                    self.recorder.add_event('key', 'back', 0.2)
                     time.sleep(0.5)
                     self.command_runner.get_ui_info()
                     time.sleep(0.5)
@@ -178,6 +196,7 @@ class Surfer:
                         print(log_msg)
                         self.logger.write_line(log_msg)
                         self.command_runner.close_all()
+                        self.recorder.add_event('close_all', '')
                         self.go_to_state(topParser.hash)
 
 
@@ -191,3 +210,5 @@ if __name__=='__main__':
     # surfer.dfs()
     surfer.logger.write_line(f'starting traversal using bfs')
     surfer.bfs()
+    print(surfer.recorder.activities)
+    surfer.recorder.play_back()
