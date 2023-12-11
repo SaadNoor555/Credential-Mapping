@@ -2,6 +2,7 @@ from XMLParser import XMLParser
 from run_adb_commands import AdbCommand
 import time
 import json
+from logger import Logger
 
 class Surfer:
     def __init__(self, packagename):
@@ -12,6 +13,7 @@ class Surfer:
         self.state = {}
         self.keymap = {}
         self.visited = set()
+        self.logger = Logger()
 
     def start_app(self):
         self.command_runner.start_app()
@@ -19,7 +21,9 @@ class Surfer:
         time.sleep(0.5)
         parser = XMLParser()
         self.initial_screen = parser
-        print(f'hash len {len(self.initial_screen.hash)}')
+        log_message = f'hash len {len(self.initial_screen.hash)}'
+        print(log_message)
+        self.logger.write_line(log_message)
 
     def dfs(self, curParser=None, i=0):
         if curParser==None:
@@ -55,7 +59,9 @@ class Surfer:
 
 
             if self.state[curParser.hash][json.dumps(action['bounds'])]:
-                print(f'skipping since already clicked before {action["bounds"]}')
+                log_msg = f'skipping since already clicked before {action["bounds"]}'
+                print(log_msg)
+                self.logger.write_line(log_msg)
                 continue
             
 
@@ -63,15 +69,19 @@ class Surfer:
             self.command_runner.get_ui_info()
             lastParser = XMLParser()
             if action not in lastParser.clickables:
-                print(f'skipping since current layout does not have it {action["bounds"]}')
+                log_msg = f'skipping since current layout does not have it {action["bounds"]}'
+                print(log_msg)
+                self.logger.write_line(log_msg)
                 self.dfs(lastParser)
                 return
         
             self.state[curParser.hash][json.dumps(action['bounds'])] = True
             
             x, y = curParser.get_nodes_center(action)
-            print(i)
-            print(f'clicking {x}, {y}.\nclass: {action["class"]}\ntext: {action["text"]}\ncontent-desc: {action["content-desc"]}')
+            # print(i)
+            log_msg = f'clicking {x}, {y}.\nclass: {action["class"]}\ntext: {action["text"]}\ncontent-desc: {action["content-desc"]}'
+            print(log_msg)
+            self.logger.write_line(log_msg)
             self.command_runner.touch_event([x, y])
             time.sleep(2)
             self.command_runner.get_ui_info()
@@ -82,17 +92,23 @@ class Surfer:
         self.command_runner.get_ui_info()
         curScreen = XMLParser()
         if curScreen.hash!=self.initial_screen.hash:
-            print('going back')
+            log_msg = 'going back'
+            print(log_msg)
+            self.logger.write_line(log_msg)
             self.command_runner.key_press_event('back')
         else:
-            print('not going back since at home')
+            log_msg = 'not going back since at home'
+            print(log_msg)
+            self.logger.write_line(log_msg)
 
     def go_to_state(self, stateHash):
         self.command_runner.start_app()
         for coords in self.keymap[stateHash]:
             self.command_runner.touch_event(coords)
             time.sleep(0.5)
-        print('state restored')
+        log_msg = 'state restored'
+        print(log_msg)
+        self.logger.write_line(print)
 
     def bfs(self, curParser=None):
         if curParser==None:
@@ -103,19 +119,27 @@ class Surfer:
         self.visited.add(curParser.hash)
         queue.append(curParser)
         while len(queue)!=0:
-            print('new iteration\n********************')
+            log_msg = 'new iteration\n********************'
+            print(log_msg)
             topParser = queue[0]
             queue = queue[1:]
             # performing events to go to topParser
             # for coords in self.keymap[topParser.hash]:
             #     self.command_runner.touch_event(coords)
             #     time.sleep(0.5)
-            self.go_to_state(topParser.hash)
+            self.command_runner.get_ui_info()
+            time.sleep(1)
+            latestParser = XMLParser()
+            if latestParser.hash != topParser.hash:
+                self.command_runner.close_all()
+                self.go_to_state(topParser.hash)
 
             for action in topParser.clickables:
                 # Starting to do available click actions
                 x, y = topParser.get_nodes_center(action)
-                print(f'clicking {x}, {y}.\nclass: {action["class"]}\ntext: {action["text"]}\ncontent-desc: {action["content-desc"]}')
+                log_msg = f'clicking {x}, {y}.\nclass: {action["class"]}\ntext: {action["text"]}\ncontent-desc: {action["content-desc"]}'
+                print(log_msg)
+                self.logger.write_line(log_msg)
                 self.command_runner.touch_event([x, y])
                 self.command_runner.get_ui_info()
                 newParser = XMLParser()
@@ -126,21 +150,33 @@ class Surfer:
                     queue.append(newParser)
                     self.visited.add(newParser.hash)
                 if 'edittext' in action['class'].lower():
-                    print('going back edittext')
+                    log_msg = 'going back edittext'
+                    print(log_msg)
+                    self.logger.write_line(log_msg)
                     self.command_runner.key_press_event('back')
                     time.sleep(0.5)
-                print(len(newParser.hash))
+                log_msg = f'newParser length: {len(newParser.hash)}'
+                print(log_msg)
+                self.logger.write_line(log_msg)
                 if newParser.hash!=topParser.hash:
-                    print('going back***')
+                    log_msg = 'going back***'
+                    print(log_msg)
+                    self.logger.write_line(log_msg)
                     self.command_runner.key_press_event('back')
                     time.sleep(0.5)
                     self.command_runner.get_ui_info()
                     time.sleep(0.5)
                     lastParser = XMLParser()
                     if lastParser.hash!=topParser.hash:
-                        print(len(lastParser.hash))
-                        print(len(topParser.hash))
-                        print('closing as the app did not restore state')
+                        log_msg = f'lastParser length: {len(lastParser.hash)}'
+                        print(log_msg)
+                        self.logger.write_line(log_msg)
+                        log_msg = f'topParser length: {len(topParser.hash)}'
+                        print(log_msg)
+                        self.logger.write_line(log_msg)
+                        log_msg = 'closing as the app did not restore state'
+                        print(log_msg)
+                        self.logger.write_line(log_msg)
                         self.command_runner.close_all()
                         self.go_to_state(topParser.hash)
 
@@ -150,6 +186,8 @@ class Surfer:
 if __name__=='__main__':
     package_name = 'com.google.android.contacts'
     surfer = Surfer(package_name)
+    surfer.logger.write_line(f'Starting app {package_name}')
     surfer.start_app()
     # surfer.dfs()
+    surfer.logger.write_line(f'starting traversal using bfs')
     surfer.bfs()
