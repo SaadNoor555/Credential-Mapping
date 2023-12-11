@@ -1,0 +1,548 @@
+Starting app com.google.android.contacts
+hash len 2438
+starting traversal using bfs
+clicking 540, 216.
+class: android.widget.EditText
+text: Search contacts
+content-desc: 
+going back edittext
+newParser length: 2512
+going back***
+clicking 116, 216.
+class: android.widget.ImageButton
+text: 
+content-desc: Open navigation drawer
+newParser length: 3197
+going back***
+clicking 841, 216.
+class: android.widget.ImageView
+text: 
+content-desc: More options
+newParser length: 521
+going back***
+clicking 971, 216.
+class: android.widget.FrameLayout
+text: 
+content-desc: Signed in as Device
+Account and settings.
+newParser length: 1988
+going back***
+clicking 241, 366.
+class: android.widget.Button
+text: Phone contacts
+content-desc: 
+newParser length: 2438
+going back***
+lastParser length: 1662
+topParser length: 2438
+closing as the app did not restore state
+<built-in function print>
+clicking 651, 366.
+class: android.widget.Button
+text: Email contacts
+content-desc: 
+newParser length: 2080
+going back***
+lastParser length: 1662
+topParser length: 2438
+closing as the app did not restore state
+<built-in function print>
+clicking 971, 366.
+class: android.widget.Button
+text: Company
+content-desc: 
+newParser length: 587
+going back***
+clicking 943, 2011.
+class: android.widget.ImageButton
+text: 
+content-desc: Create contact
+newParser length: 3938
+going back***
+clicking 540, 2232.
+class: android.widget.FrameLayout
+text: 
+content-desc: Highlights
+newParser length: 2897
+going back***
+clicking 900, 2232.
+class: android.widget.FrameLayout
+text: 
+content-desc: Fix & manage
+newParser length: 2521
+going back***
+<built-in function print>
+clicking 63, 215.
+class: android.widget.ImageButton
+text: 
+content-desc: Back
+newParser length: 2438
+going back***
+lastParser length: 1662
+topParser length: 2512
+closing as the app did not restore state
+<built-in function print>
+clicking 539, 216.
+class: android.widget.EditText
+text: Search contacts
+content-desc: 
+going back edittext
+newParser length: 2512
+clicking 1016, 215.
+class: android.widget.Button
+text: 
+content-desc: Start voice search
+newParser length: 361
+going back***
+<built-in function print>
+clicking 456, 385.
+class: android.support.v7.widget.LinearLayoutCompat
+text: 
+content-desc: 
+newParser length: 2438
+going back***
+lastParser length: 1662
+topParser length: 3197
+closing as the app did not restore state
+<built-in function print>
+clicking 456, 661.
+class: android.support.v7.widget.LinearLayoutCompat
+text: 
+content-desc: 
+newParser length: 825
+going back***
+lastParser length: 837
+topParser length: 3197
+closing as the app did not restore state
+<built-in function print>
+<built-in function print>
+<built-in function print>
+clicking 115, 384.
+class: android.widget.ImageView
+text: 
+content-desc: Close
+newParser length: 1988
+clicking 540, 874.
+class: android.view.ViewGroup
+text: 
+content-desc: 
+newParser length: 2310
+going back***
+lastParser length: 2310
+topParser length: 1988
+closing as the app did not restore state
+<built-in function print>
+clicking 540, 1128.
+class: android.view.ViewGroup
+text: 
+content-desc: 
+newParser length: 3146
+going back***
+lastParser length: 2438
+topParser length: 1988
+closing as the app did not restore state
+<built-in function print>
+clicking 359, 1255.
+class: android.widget.Button
+text: Privacy Policy
+content-desc: 
+newParser length: 963
+going back***
+lastParser length: 2438
+topParser length: 1988
+closing as the app did not restore state
+<built-in function print>
+clicking 698, 1255.
+class: android.widget.Button
+text: Terms of Service
+content-desc: 
+newParser length: 963
+going back***
+lastParser length: 2438
+topParser length: 1988
+closing as the app did not restore state
+<built-in function print>
+<built-in function print>
+clicking 265, 366.
+class: android.widget.Button
+text: Phone contacts
+content-desc: 
+newParser length: 2438
+going back***
+lastParser length: 1662
+topParser length: 2438
+closing as the app did not restore state
+<built-in function print>
+clicking 699, 366.
+class: android.widget.Button
+text: Email contacts
+content-desc: 
+newParser length: 2080
+going back***
+lastParser length: 1662
+topParser length: 2438
+closing as the app did not restore state
+<built-in function print>
+clicking 995, 366.
+class: android.widget.Button
+text: Company
+content-desc: 
+newParser length: 587
+going back***
+<built-in function print>
+clicking 675, 366.
+class: android.widget.Button
+text: Email contacts
+content-desc: 
+newParser length: 2438
+going back***
+lastParser length: 1662
+topParser length: 2080
+closing as the app did not restore state
+<built-in function print>
+clicking 995, 366.
+class: android.widget.Button
+text: Company
+content-desc: 
+newParser length: 501
+going back***
+<built-in function print>
+clicking 540, 1200.
+class: android.view.View
+text: 
+content-desc: 
+newParser length: 587
+clicking 540, 2263.
+class: android.widget.TextView
+text: iit 
+content-desc: 
+newParser length: 2438
+going back***
+lastParser length: 1662
+topParser length: 587
+closing as the app did not restore state
+<built-in function print>
+<built-in function print>
+clicking 73, 215.
+class: android.widget.ImageButton
+text: 
+content-desc: Cancel
+newParser length: 3938
+clicking 838, 215.
+class: android.widget.Button
+text: Save
+content-desc: 
+newParser length: 682
+going back***
+clicking 1017, 215.
+class: android.widget.ImageView
+text: 
+content-desc: More options
+newParser length: 302
+going back***
+clicking 539, 510.
+class: android.widget.FrameLayout
+text: 
+content-desc: Add contact photo
+newParser length: 1823
+going back***
+clicking 539, 731.
+class: android.widget.Button
+text: Add picture
+content-desc: 
+newParser length: 1823
+going back***
+clicking 535, 936.
+class: android.widget.EditText
+text: First name
+content-desc: 
+going back edittext
+newParser length: 2419
+going back***
+lastParser length: 2438
+topParser length: 3938
+closing as the app did not restore state
+<built-in function print>
+clicking 535, 1121.
+class: android.widget.EditText
+text: Last name
+content-desc: 
+going back edittext
+newParser length: 3938
+clicking 1006, 920.
+class: android.widget.FrameLayout
+text: 
+content-desc: 
+newParser length: 2438
+going back***
+lastParser length: 1662
+topParser length: 3938
+closing as the app did not restore state
+<built-in function print>
+clicking 535, 1327.
+class: android.widget.EditText
+text: Company
+content-desc: 
+going back edittext
+newParser length: 3938
+clicking 535, 1533.
+class: android.widget.EditText
+text: Phone
+content-desc: 
+going back edittext
+newParser length: 2438
+going back***
+lastParser length: 1662
+topParser length: 3938
+closing as the app did not restore state
+<built-in function print>
+clicking 361, 1718.
+class: android.widget.Spinner
+text: Mobile
+content-desc: Mobile Phone
+newParser length: 3938
+clicking 523, 1718.
+class: android.widget.ImageButton
+text: 
+content-desc: Show dropdown menu
+newParser length: 3938
+clicking 535, 1929.
+class: android.widget.EditText
+text: Email
+content-desc: 
+going back edittext
+newParser length: 3080
+going back***
+lastParser length: 2438
+topParser length: 3938
+closing as the app did not restore state
+<built-in function print>
+clicking 347, 2114.
+class: android.widget.Spinner
+text: Home
+content-desc: Home Email
+newParser length: 3938
+clicking 494, 2114.
+class: android.widget.ImageButton
+text: 
+content-desc: Show dropdown menu
+newParser length: 3938
+clicking 535, 2294.
+class: android.widget.EditText
+text: Significant date
+content-desc: 
+going back edittext
+newParser length: 1709
+going back***
+lastParser length: 2438
+topParser length: 3938
+closing as the app did not restore state
+<built-in function print>
+clicking 870, 2299.
+class: android.widget.ImageButton
+text: 
+content-desc: Show date picker
+newParser length: 3938
+<built-in function print>
+clicking 116, 216.
+class: android.widget.ImageButton
+text: 
+content-desc: Search
+newParser length: 3047
+going back***
+lastParser length: 3047
+topParser length: 2897
+closing as the app did not restore state
+<built-in function print>
+clicking 964, 363.
+class: android.widget.Button
+text: Add
+content-desc: 
+newParser length: 1015
+going back***
+clicking 540, 822.
+class: android.widget.Button
+text: Add favorites
+content-desc: 
+newParser length: 1015
+going back***
+clicking 996, 1036.
+class: android.widget.Button
+text: 
+content-desc: More options
+newParser length: 310
+going back***
+clicking 421, 1209.
+class: android.widget.CompoundButton
+text: Viewed
+content-desc: Viewed recently
+newParser length: 2897
+clicking 664, 1209.
+class: android.widget.CompoundButton
+text: Added
+content-desc: Added recently
+newParser length: 2897
+clicking 180, 2232.
+class: android.widget.FrameLayout
+text: 
+content-desc: Contacts
+newParser length: 2438
+going back***
+<built-in function print>
+clicking 1006, 215.
+class: android.widget.FrameLayout
+text: 
+content-desc: Signed in as Device
+Account and settings.
+newParser length: 1988
+going back***
+clicking 280, 568.
+class: androidx.cardview.widget.CardView
+text: 
+content-desc: 
+newParser length: 579
+going back***
+clicking 799, 568.
+class: androidx.cardview.widget.CardView
+text: 
+content-desc: 
+newParser length: 2431
+going back***
+clicking 280, 768.
+class: androidx.cardview.widget.CardView
+text: 
+content-desc: 
+newParser length: 2221
+going back***
+lastParser length: 2221
+topParser length: 2521
+closing as the app did not restore state
+<built-in function print>
+clicking 799, 768.
+class: androidx.cardview.widget.CardView
+text: 
+content-desc: 
+newParser length: 2989
+going back***
+clicking 540, 1052.
+class: android.widget.LinearLayout
+text: 
+content-desc: 
+newParser length: 1355
+going back***
+clicking 180, 2232.
+class: android.widget.FrameLayout
+text: 
+content-desc: Contacts
+newParser length: 2438
+going back***
+<built-in function print>
+clicking 540, 1136.
+class: android.widget.FrameLayout
+text: 
+content-desc: Tap to stop listening
+newParser length: 1988
+going back***
+lastParser length: 2521
+topParser length: 361
+closing as the app did not restore state
+<built-in function print>
+<built-in function print>
+clicking 540, 798.
+class: android.widget.EditText
+text: Label name
+content-desc: 
+going back edittext
+newParser length: 2521
+going back***
+lastParser length: 1662
+topParser length: 825
+closing as the app did not restore state
+<built-in function print>
+clicking 644, 1040.
+class: android.widget.Button
+text: Cancel
+content-desc: 
+newParser length: 1355
+going back***
+lastParser length: 2521
+topParser length: 825
+closing as the app did not restore state
+<built-in function print>
+clicking 842, 1040.
+class: android.widget.Button
+text: OK
+content-desc: 
+newParser length: 1355
+going back***
+lastParser length: 2521
+topParser length: 825
+closing as the app did not restore state
+<built-in function print>
+<built-in function print>
+clicking 73, 205.
+class: android.widget.ImageButton
+text: 
+content-desc: Navigate up
+newParser length: 2521
+going back***
+lastParser length: 1662
+topParser length: 2310
+closing as the app did not restore state
+<built-in function print>
+clicking 540, 925.
+class: android.widget.LinearLayout
+text: 
+content-desc: 
+newParser length: 2310
+clicking 943, 925.
+class: android.widget.ImageView
+text: 
+content-desc: Settings
+newParser length: 1249
+going back***
+clicking 540, 1215.
+class: android.widget.LinearLayout
+text: 
+content-desc: 
+newParser length: 1791
+going back***
+lastParser length: 1791
+topParser length: 2310
+closing as the app did not restore state
+<built-in function print>
+clicking 540, 1396.
+class: android.widget.LinearLayout
+text: 
+content-desc: 
+newParser length: 2521
+going back***
+lastParser length: 1791
+topParser length: 2310
+closing as the app did not restore state
+<built-in function print>
+<built-in function print>
+clicking 73, 215.
+class: android.widget.ImageButton
+text: 
+content-desc: Navigate up
+newParser length: 2521
+going back***
+lastParser length: 1662
+topParser length: 3146
+closing as the app did not restore state
+<built-in function print>
+clicking 1011, 215.
+class: android.widget.ImageView
+text: 
+content-desc: More options
+newParser length: 2521
+going back***
+lastParser length: 1662
+topParser length: 3146
+closing as the app did not restore state
+<built-in function print>
+clicking 540, 499.
+class: android.widget.LinearLayout
+text: 
+content-desc: 
