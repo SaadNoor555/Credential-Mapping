@@ -1,9 +1,11 @@
-from XMLParser import XMLParser
+from XMLParser import XMLParser, getSimilarity
 from run_adb_commands import AdbCommand
 import time
 import json
 from logger import Logger
 from recorder import Recorder
+from sentence_transformers import SentenceTransformer
+import random
 
 class Surfer:
     def __init__(self, packagename):
@@ -16,6 +18,7 @@ class Surfer:
         self.visited = set()
         self.logger = Logger()
         self.recorder = Recorder(self.packagename)
+        self.model = model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
     def start_app(self):
         self.command_runner.start_app()
@@ -116,6 +119,38 @@ class Surfer:
         log_msg = 'state restored'
         print(log_msg)
         self.logger.write_line(print)
+    
+    def map_to_config(self, config_name, curParser):
+        input_map = curParser.map_nodes()
+        # print(input_map)
+        f = open(config_name)
+        config_map = json.load(f)
+        label_sim_map = {}
+        for label in input_map.keys():
+            max_dis = 0
+            label_sim_map[label] = {}
+            for key in config_map.keys():
+                similarity = getSimilarity(key, label, self.model)
+                if similarity > max_dis:
+                    max_dis = similarity
+                    label_sim_map[label]['text'] = config_map[key]
+                    label_sim_map[label]['similarity'] = similarity
+        
+        # print(label_sim_map)
+        
+        for key in label_sim_map:
+            if label_sim_map[key]['similarity']>=0.4 and input_map[key]['dist']<100:
+                cx, cy = curParser.get_nodes_center(input_map[key]['node'])
+                print(cx, cy)
+                self.command_runner.touch_event([cx, cy])
+                self.recorder.add_event('touch', [cx, cy], 1)
+                time.sleep(2)
+                print(label_sim_map[key]['text'])
+                self.command_runner.type_event(label_sim_map[key]['text'])
+                self.recorder.add_event('print', label_sim_map[key]['text'], 1)
+                time.sleep(2)
+                self.command_runner.key_press_event(key='back')
+                self.recorder.add_event('type', 'back')
 
     def bfs(self, curParser=None, config_name=r'F:\spl3\Credential-Mapping\codes\contact_input.json', time_limit=300):
         start_time = time.time()
@@ -135,6 +170,7 @@ class Surfer:
             # for coords in self.keymap[topParser.hash]:
             #     self.command_runner.touch_event(coords)
             #     time.sleep(0.5)
+            
             self.command_runner.get_ui_info()
             time.sleep(1)
             latestParser = XMLParser()
@@ -143,19 +179,26 @@ class Surfer:
                 self.recorder.add_event('close_all', '', 0.2)
                 self.go_to_state(topParser.hash)
             for action in topParser.scrollables:
+                self.map_to_config(config_name, topParser)
                 x, y = topParser.get_nodes_center(action)
+                log_msg = f'scrolling from {x},{y+200} to {x}, {y-200}'
+                print(log_msg)
+                self.logger.write_line(log_msg)
+                self.command_runner.swipe_event((x, y+200), (x, y-200))
+                self.recorder.add_event('swipe', [(x, y+200), (x, y-200)], 0.2)
                 log_msg = f'scrolling from {x},{y-200} to {x}, {y+200}'
                 print(log_msg)
                 self.logger.write_line(log_msg)
                 self.command_runner.swipe_event((x, y-200), (x, y+200))
                 self.recorder.add_event('swipe', [(x, y-200), (x, y+200)], 0.2)
 
-                log_msg = f'scrolling from {x},{y+200} to {x}, {y-200}'
-                print(log_msg)
-                self.logger.write_line(log_msg)
-                self.command_runner.swipe_event((x, y+200), (x, y-200))
-                self.recorder.add_event('swipe', [(x, y+200), (x, y-200)], 0.2)
+            random.shuffle(topParser.clickables)
             for action in topParser.clickables:
+                if 'EditText' in action['class']:
+                    log_msg = f'skipping since edittext'
+                    print(log_msg)
+                    self.logger.write_line(log_msg)
+                    continue
                 print(f'time passed: {time.time()-start_time}s')
                 if (time.time() - start_time)>time_limit:
                     log_msg = f'time limit of {time_limit}s reached'
@@ -221,6 +264,6 @@ if __name__=='__main__':
     surfer.start_app()
     # surfer.dfs()
     surfer.logger.write_line(f'starting traversal using bfs')
-    surfer.bfs()
+    surfer.bfs(time_limit=600)
     print(surfer.recorder.activities)
     surfer.recorder.play_back()

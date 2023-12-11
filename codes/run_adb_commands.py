@@ -100,7 +100,8 @@ if __name__=='__main__':
 
     commander = AdbCommand('com.google.android.contacts')
     commander.get_ui_info()
-    commander.close_all()
+    # commander.close_all()
+    commander.type_event('saad')
     # for i in range(3):
     #     commander.close_app()
     # commander.touch_event([116, 216])

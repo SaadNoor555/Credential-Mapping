@@ -153,7 +153,7 @@ class XMLParser:
                 input_map[label['text']] = {}
                 input_map[label['text']]['dist'] = 9999
             for box in input_boxes:
-                print(label['text'])
+                # print(label['text'])
                 cur_dist = self.get_nodes_distance(label, box)
                 if cur_dist<input_map[label['text']]['dist']:
                     input_map[label['text']]['node'] = box

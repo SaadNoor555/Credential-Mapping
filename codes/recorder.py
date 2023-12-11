@@ -35,6 +35,10 @@ class Recorder:
                 self.commander.start_app()
             
             elif event['type']=='type':
+                self.commander.key_press_event(event['coords'])
+
+            elif event['type']=='print':
                 self.commander.type_event(event['coords'])
+
 
             time.sleep(event['wait'])
