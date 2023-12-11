@@ -43,6 +43,9 @@ class AdbCommand:
             'enter': 66,
             'del': 67,
             'escape': 111,
+            'kill_app': 20,
+            'recents': 'KEYCODE_APP_SWITCH',
+            'delete': 'DEL'
         }
         test_adb_shell(f'input keyevent {key_dict[key]}')
 
@@ -59,6 +62,21 @@ class AdbCommand:
         command = f'am start {self.package}'
         test_adb_shell(command)
         time.sleep(5)
+
+    def close_app(self):
+        self.key_press_event('home')
+        time.sleep(0.5)
+        self.key_press_event('recents')
+        time.sleep(1)
+        self.swipe_event([522, 1647], [522, 90])
+
+    def close_all(self):
+        self.key_press_event('recents')
+        time.sleep(1.2)
+        self.swipe_event([100, 1000], [800, 1000])
+        time.sleep(1)
+        self.touch_event([215, 1180])
+        time.sleep(1)
 
     def get_ui_info(self, outputfile=''):
         command = f'uiautomator dump'
@@ -82,6 +100,9 @@ if __name__=='__main__':
 
     commander = AdbCommand('com.google.android.contacts')
     commander.get_ui_info()
+    commander.close_all()
+    # for i in range(3):
+    #     commander.close_app()
     # commander.touch_event([116, 216])
 
     # commander = AdbCommand()

@@ -8,6 +8,9 @@ from transformers import pipeline
 
 class XMLParser:
     def __init__(self, filename=r'G:\SPL3_backend\Final\Credential-Mapping\codes\window_dump.xml'):
+        commander = AdbCommand()
+        commander.get_ui_info()
+        time.sleep(1)
         self.tree = ET.parse(filename)
         # print(len(tree))
         self.root = self.tree.getroot()
@@ -57,11 +60,26 @@ class XMLParser:
         return eligible
 
     def hash_node(self):
-        hash = str(len(self.element_maps))
+        hash = ''
+        # hash = str(len(self.element_maps))
         for node in self.element_maps:
             hash += '\n<'+(node['class'] if node['class']!=None else '')+';'
             hash += (json.dumps(node['bounds']) if node['class']!=None else '')+'>'
-        return hash
+        seen = set()
+        u_hash = []
+        forbidden = ['ImageView', 'FrameLayout']
+        for line in hash.splitlines():
+            br = False
+            for word in forbidden:
+                if word in line:
+                    br = True
+                    break
+
+            if line not in seen and not br:
+                seen.add(line)
+                u_hash.append(line)
+        
+        return '\n'.join(u_hash)
 
 
     def get_nodes_center(self, node):
@@ -107,6 +125,16 @@ class XMLParser:
     def get_clickables(self):
         self.clickables = self.find_by_attribute('clickable')
     
+
+    def filter_clickables(self, parent):
+        new_clickables = []
+        for clickable in self.clickables:
+            if clickable not in parent.clickables:
+                new_clickables.append(clickable)
+        
+        self.clickables = new_clickables
+
+
     def get_long_clickables(self):
         self.get_long_clickables = self.find_by_attribute('long-clickable')
     
@@ -211,6 +239,9 @@ if __name__=='__main__':
     # xp = XMLParser(filename)
     # model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
     # test_mapping(model)
-    test_scrolling()
+    # test_scrolling()
+    filename = r'G:\SPL3_backend\Final\Credential-Mapping\codes\window_dump.xml'
+    xp = XMLParser(filename)
+    print(xp.hash)
     
 
