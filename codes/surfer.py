@@ -21,7 +21,7 @@ class Surfer:
         self.visited = set()
         self.logger = Logger()
         self.recorder = Recorder(self.packagename)
-        self.model = model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+        self.model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
         self.tree = UITree()
 
     def start_app(self):
@@ -182,7 +182,7 @@ class Surfer:
                 self.command_runner.close_all()
                 self.recorder.add_event('close_all', '', 0.2)
                 self.go_to_state(topParser.hash)
-            ss_folder = r'G:\SPL3_backend\Final\Credential-Mapping\codes\output_images'
+            ss_folder = r'F:\spl3\Credential-Mapping\codes\output_images'
             file_name = topParser.true_hash+'.png'
             file_path = os.path.join(ss_folder, file_name)
             self.tree.add_image_path(topParser.true_hash, file_path)

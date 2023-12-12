@@ -1,14 +1,19 @@
 Starting app com.google.android.contacts
-hash len 3333
+hash len 2647
 starting traversal using bfs
+scrolling from 540,566 to 540, 166
+scrolling from 540,166 to 540, 566
+clicking 971, 216.
+class: android.widget.FrameLayout
+text: 
+content-desc: Signed in as Device
+Account and settings.
+newParser length: 1988
+going back***
 clicking 900, 2232.
 class: android.widget.FrameLayout
 text: 
 content-desc: Fix & manage
 newParser length: 2521
 going back***
-lastParser length: 3333
-topParser length: 3333
-closing as the app did not restore state
-<built-in function print>
 time limit of 30s reached

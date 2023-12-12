@@ -7,7 +7,7 @@ import json
 import hashlib
 
 class XMLParser:
-    def __init__(self, filename=r'G:\SPL3_backend\Final\Credential-Mapping\codes\window_dump.xml'):
+    def __init__(self, filename=r'F:\spl3\Credential-Mapping\codes\window_dump.xml'):
         commander = AdbCommand()
         commander.get_ui_info()
         time.sleep(1)
