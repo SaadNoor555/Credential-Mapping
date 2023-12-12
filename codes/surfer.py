@@ -284,5 +284,6 @@ if __name__=='__main__':
     surfer.logger.write_line(f'starting traversal using bfs')
     surfer.bfs(time_limit=30)
     print(surfer.recorder.activities)
+    surfer.recorder.save_states()
     # surfer.recorder.play_back()
     surfer.tree.make_html_tree()
