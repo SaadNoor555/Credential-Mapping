@@ -19,6 +19,14 @@ class AdbCommand:
         command = f'input tap {coord[0]} {coord[1]}'
         test_adb_shell(command)
 
+    def screenshot(self, localfile):
+        command = f'screencap -p /sdcard/screencap.png'
+        test_adb_shell(command)
+        self.retrive_screenshot(localfile=localfile)
+
+    def retrive_screenshot(self, localfile, outputfile=r'/sdcard/screencap.png'):
+        os.system(f'adb pull {outputfile} {localfile}')
+
     def key_press_event(self, key, longpress=False):
         key_dict = {
             'up': 280,

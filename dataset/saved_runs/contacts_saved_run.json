@@ -1,0 +1,184 @@
+[
+    {
+        "type": "close_all",
+        "coords": "",
+        "wait": 0.5
+    },
+    {
+        "type": "start",
+        "coords": "",
+        "wait": 0
+    },
+    {
+        "type": "touch",
+        "coords": [540, 220],
+        "wait": 1
+    },
+    {
+        "type": "print",
+        "coords": "mom",
+        "wait": 3
+    },
+    {
+        "type": "touch",
+        "coords": [530, 400],
+        "wait": 3
+    },
+    {
+        "type": "swipe",
+        "coords": [[530, 2000],[530, 650]],
+        "wait": 1
+    },
+    {
+        "type": "swipe",
+        "coords": [[530, 650],[530, 2000]],
+        "wait": 2
+    },
+    {
+        "type": "touch",
+        "coords": [205, 1050],
+        "wait":5
+    },
+    {
+        "type": "touch",
+        "coords": [540, 2150],
+        "wait": 5
+    },
+    {
+        "type": "touch",
+        "coords": [540, 1050],
+        "wait":6
+    },
+    
+    {
+        "type": "touch",
+        "coords": [540, 2250],
+        "wait":1
+    },
+    {
+        "type": "print",
+        "coords": "hello",
+        "wait":2
+    },
+    {
+        "type": "type",
+        "coords": "back",
+        "wait":1
+    },
+    {
+        "type": "type",
+        "coords": "back",
+        "wait":1
+    },
+    {
+        "type": "close_all",
+        "coords": "",
+        "wait": 2
+    },
+    {
+        "type": "start",
+        "coords": "",
+        "wait": 1
+    },
+    {
+        "type": "touch",
+        "coords": [950, 2015],
+        "wait": 2.5
+    },
+    {
+        "type": "touch",
+        "coords": [540, 940],
+        "wait": 1
+    },
+    {
+        "type": "print",
+        "coords": "jack",
+        "wait": 2
+    },
+    {
+        "type": "type",
+        "coords": "back",
+        "wait":1
+    },
+    {
+        "type": "touch",
+        "coords": [540, 1110],
+        "wait": 2
+    },
+    {
+        "type": "print",
+        "coords": "back",
+        "wait": 1
+    },
+    {
+        "type": "type",
+        "coords": "back",
+        "wait":1
+    },
+    {
+        "type": "touch",
+        "coords": [540, 1320],
+        "wait": 1
+    },
+    {
+        "type": "print",
+        "coords": "DU",
+        "wait": 1
+    },
+    {
+        "type": "type",
+        "coords": "back",
+        "wait":1
+    },
+    {
+        "type": "touch",
+        "coords": [540, 1530],
+        "wait": 1
+    },
+    {
+        "type": "print",
+        "coords": "012345678",
+        "wait": 2
+    },
+    {
+        "type": "type",
+        "coords": "back",
+        "wait":1
+    },
+    {
+        "type": "touch",
+        "coords": [540, 1950],
+        "wait": 1
+    },
+    {
+        "type": "print",
+        "coords": "jack@back.com",
+        "wait": 2
+    },
+    {
+        "type": "type",
+        "coords": "back",
+        "wait":3
+    },
+    {
+        "type": "touch",
+        "coords": [850, 220],
+        "wait": 1
+    },
+    {
+        "type": "close_all",
+        "coords": "",
+        "wait": 2
+    },
+    {
+        "type": "start",
+        "coords": "",
+        "wait": 1
+    },
+    {
+        "type": "touch",
+        "coords": [113, 218],
+        "wait": 2
+    }
+
+]

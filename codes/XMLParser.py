@@ -4,10 +4,10 @@ import time
 import math
 from sentence_transformers import SentenceTransformer, util
 import json
-from transformers import pipeline
+import hashlib
 
 class XMLParser:
-    def __init__(self, filename=r'F:\spl3\Credential-Mapping\codes\window_dump.xml'):
+    def __init__(self, filename=r'G:\SPL3_backend\Final\Credential-Mapping\codes\window_dump.xml'):
         commander = AdbCommand()
         commander.get_ui_info()
         time.sleep(1)
@@ -21,6 +21,7 @@ class XMLParser:
         self.get_scrollables()
         self.get_long_clickables()
         self.hash = self.hash_node()
+        self.true_hash = hashlib.sha256(self.hash.encode('utf-8')).hexdigest()
         
 
     def parse_tree(self):

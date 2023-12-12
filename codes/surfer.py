@@ -6,6 +6,9 @@ from logger import Logger
 from recorder import Recorder
 from sentence_transformers import SentenceTransformer
 import random
+import hashlib
+import os
+from visualize import UITree
 
 class Surfer:
     def __init__(self, packagename):
@@ -19,6 +22,7 @@ class Surfer:
         self.logger = Logger()
         self.recorder = Recorder(self.packagename)
         self.model = model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+        self.tree = UITree()
 
     def start_app(self):
         self.command_runner.start_app()
@@ -152,7 +156,7 @@ class Surfer:
                 self.command_runner.key_press_event(key='back')
                 self.recorder.add_event('type', 'back')
 
-    def bfs(self, curParser=None, config_name=r'F:\spl3\Credential-Mapping\codes\contact_input.json', time_limit=300):
+    def bfs(self, curParser=None, config_name=r'G:\SPL3_backend\Final\Credential-Mapping\codes\contact_input.json', time_limit=100):
         start_time = time.time()
         if curParser==None:
             curParser = self.initial_screen
@@ -178,8 +182,14 @@ class Surfer:
                 self.command_runner.close_all()
                 self.recorder.add_event('close_all', '', 0.2)
                 self.go_to_state(topParser.hash)
+            ss_folder = r'G:\SPL3_backend\Final\Credential-Mapping\codes\output_images'
+            file_name = topParser.true_hash+'.png'
+            file_path = os.path.join(ss_folder, file_name)
+            self.tree.add_image_path(topParser.true_hash, file_path)
+            self.command_runner.screenshot(file_path)
+            time.sleep(2)
             for action in topParser.scrollables:
-                self.map_to_config(config_name, topParser)
+                
                 x, y = topParser.get_nodes_center(action)
                 log_msg = f'scrolling from {x},{y+200} to {x}, {y-200}'
                 print(log_msg)
@@ -195,6 +205,7 @@ class Surfer:
             random.shuffle(topParser.clickables)
             for action in topParser.clickables:
                 if 'EditText' in action['class']:
+                    self.map_to_config(config_name, topParser)
                     log_msg = f'skipping since edittext'
                     print(log_msg)
                     self.logger.write_line(log_msg)
@@ -217,6 +228,13 @@ class Surfer:
                 if newParser.hash!=topParser.hash and newParser.hash not in self.visited:
                     self.keymap[newParser.hash] = self.keymap[topParser.hash][:]
                     self.keymap[newParser.hash].append([x,y])
+                    file_name = newParser.true_hash+'.png'
+                    file_path = os.path.join(ss_folder, file_name)
+                    self.command_runner.screenshot(file_path)
+
+                    time.sleep(2)
+                    self.tree.add_image_path(newParser.true_hash, file_path)
+                    self.tree.add_edge(topParser.true_hash, newParser.true_hash)
                     newParser.filter_clickables(topParser)
                     queue.append(newParser)
                     self.visited.add(newParser.hash)
@@ -264,6 +282,7 @@ if __name__=='__main__':
     surfer.start_app()
     # surfer.dfs()
     surfer.logger.write_line(f'starting traversal using bfs')
-    surfer.bfs(time_limit=600)
+    surfer.bfs(time_limit=30)
     print(surfer.recorder.activities)
-    surfer.recorder.play_back()
+    # surfer.recorder.play_back()
+    surfer.tree.make_html_tree()
