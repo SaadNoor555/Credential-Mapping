@@ -49,8 +49,8 @@ class Recorder:
 
             time.sleep(event['wait'])
 
-    def save_states(self, filename='run_res.json'):
-        with open("sample.json", "w") as outfile: 
+    def save_states(self, filename='run_trace.json'):
+        with open(filename, "w") as outfile: 
             json.dump(self.activities, outfile)
 
 
