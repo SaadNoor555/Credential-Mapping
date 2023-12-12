@@ -49,6 +49,10 @@ class Recorder:
 
             time.sleep(event['wait'])
 
+    def save_states(self, filename='run_res.json'):
+        with open("sample.json", "w") as outfile: 
+            json.dump(self.activities, outfile)
+
 
 if __name__=="__main__":
     recorder = Recorder("com.google.android.contacts")
